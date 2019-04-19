@@ -23,7 +23,7 @@ mime_type = mimetypes.types_map[file_extension]
 print("Log-in to Google Drive")
 
 SCOPES = ['https://www.googleapis.com/auth/drive']
-SERVICE_ACCOUNT_FILE = 'google.json'
+SERVICE_ACCOUNT_FILE = os.path.join(os.path.dirname(__file__), 'google-credentials.json')
 
 credentials = service_account.Credentials.from_service_account_file(
         SERVICE_ACCOUNT_FILE, scopes=SCOPES)
