@@ -39,7 +39,7 @@ media = MediaFileUpload(file, mime_type, chunksize=10485760, resumable=True)
 request = drive_service.files().create(body=file_metadata, media_body=media, fields='id')
 response = None
 while response is None:
-  status, response = request.next_chunk()
+  status, response = request.next_chunk(num_retries=3)
   if status:
     print("Uploaded %d%%." % int(status.progress() * 100))
 
