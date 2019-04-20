@@ -34,12 +34,15 @@ print("Uploading %s (%s)" % (file, mime_type))
 
 folder_id='1v-CewZEx7LUM_q82ht-hWZ-cPcoW1XZb'
 file_metadata = {'name': filename, 'parents': [folder_id]}
-media = MediaFileUpload(file, mime_type)
+media = MediaFileUpload(file, mime_type, chunksize=10485760, resumable=True)
 
-file = drive_service.files().create(body=file_metadata,
-                                    media_body=media,
-                                    fields='id').execute()
+request = drive_service.files().create(body=file_metadata, media_body=media, fields='id')
+response = None
+while response is None:
+  status, response = request.next_chunk()
+  if status:
+    print("Uploaded %d%%." % int(status.progress() * 100))
 
-file_id = file.get('id')
+file_id = response.get('id')
 
 print("File uploaded: %s" % file_id)
