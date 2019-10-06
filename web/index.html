@@ -8,6 +8,7 @@
 
     <center><h1>Surveillance Camera</h1></center>
     <center><img id="image" src="latest-image.jpg" width="80%"></center>
+    <center><h5 id="last-updated"></h5></center>
 
     <script>
       // Use an off-screen image to load the next frame.
@@ -18,12 +19,15 @@
          document.getElementById("image").src = img.src;
 
          setTimeout(function() {
-           img.src = "latest-image.jpg?" + (new Date).getTime();
-         }, 1000 * 60); 
+           var date = new Date
+           img.src = "latest-image.jpg?" + date.getTime();
+           document.getElementById("last-updated").innerHTML = "Last updated: " + date.toUTCString();
+         }, 1000 * 30); 
       })
 
-      img.src = "latest-image.jpg?" + (new Date).getTime();
-
+      var date = new Date
+      img.src = "latest-image.jpg?" + date.getTime();
+      document.getElementById("last-updated").innerHTML = "Last updated: " + date.toUTCString();
     </script>
   </body>
 </html>
