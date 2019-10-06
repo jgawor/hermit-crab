@@ -1,2 +1,2 @@
-* * * * * /home/pi/hermit-crab/capture_image.sh >> /home/pi/hermit-crab/capture_image.log 2>&1
-0 8,20 * * * /home/pi/hermit-crab/capture_video.sh >> /home/pi/hermit-crab/capture_video.log 2>&1
+* * * * * /home/pi/hermit-crab/capture_image.sh >> /home/pi/hermit-crab/logs/capture_image.log 2>&1
+0 8,20 * * * /home/pi/hermit-crab/capture_video.sh >> /home/pi/hermit-crab/logs/capture_video.log 2>&1
