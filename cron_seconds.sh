@@ -1,12 +1,12 @@
 #!/bin/bash
 
-SECONDS=$1
+CRON_SECONDS=$1
 shift
 
-TRIES=$(expr 60 / $SECONDS)
+TRIES=$(expr 60 / $CRON_SECONDS)
 
 "$@"
 for (( c=1; c<$TRIES; c++ )); do
-    sleep $SECONDS
+    sleep $CRON_SECONDS
     "$@"
 done
