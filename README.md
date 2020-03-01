@@ -12,7 +12,7 @@
 
 1. Setup webserver.service
    ```
-   sudo cp webservice.service /etc/systemd/system/
+   sudo cp webserver.service /etc/systemd/system/
    ```
 
    To start the service and enable to run at boot run:
