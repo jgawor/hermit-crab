@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 
 CUR_DIR="$(cd $(dirname $0) && pwd)"
 
@@ -18,3 +18,5 @@ ffmpeg -r 5 -f concat -i "image.list" -vcodec libx264 $VIDEO_DIR/$TIMESTAMP.mp4
 cat image.list  | sed 's/file//' | xargs rm -v
 
 $CUR_DIR/google_drive_upload.py $VIDEO_DIR/$TIMESTAMP.mp4
+
+find "$VIDEO_DIR" -name "20*" -type f  -ctime "+2" -exec rm -v {} \;

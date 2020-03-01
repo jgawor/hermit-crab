@@ -1,2 +1,4 @@
-* * * * * /home/pi/hermit-crab/capture_image.sh >> /home/pi/hermit-crab/logs/capture_image.log 2>&1
+#PATH=$PATH:/usr/local/bin
+* * * * * /home/pi/hermit-crab/cron_seconds.sh 30 /home/pi/hermit-crab/capture_image.sh >> /home/pi/hermit-crab/logs/capture_image.log 2>&1
 0 8,20 * * * /home/pi/hermit-crab/capture_video.sh >> /home/pi/hermit-crab/logs/capture_video.log 2>&1
+0 * * * * /home/pi/hermit-crab/check_disk.sh >> /home/pi/hermit-crab/logs/check_disk.log 2>&1
