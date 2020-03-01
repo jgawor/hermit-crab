@@ -17,7 +17,7 @@
 
    To start the service and enable to run at boot run:
    ```
-   sudo systemctl enable my_service
+   sudo systemctl enable webserver
    sudo systemctl start webserver
    ```
    
